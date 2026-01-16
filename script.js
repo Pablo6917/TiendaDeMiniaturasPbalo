@@ -1,23 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ===============================
-       LANGUAGE SYSTEM
+       LANGUAGE
     ================================ */
-
     function setLanguage(lang) {
         document.querySelectorAll("[data-en]").forEach(el => {
             el.textContent = el.getAttribute(`data-${lang}`);
         });
-
         document.documentElement.lang = lang;
     }
-
     setLanguage("en");
 
     /* ===============================
-       THUMBNAIL QUANTITY
+       THUMBNAIL QTY
     ================================ */
-
     function toggleThumbnailQuantity() {
         const type = document.getElementById("type").value;
         const quantityDiv = document.getElementById("thumbnailQuantityDiv");
@@ -33,20 +29,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updatePrice();
     }
-
     window.toggleThumbnailQuantity = toggleThumbnailQuantity;
 
     /* ===============================
        PRICE
     ================================ */
-
     function updatePrice() {
         const type = document.getElementById("type").value;
         const quantity = parseInt(document.getElementById("quantity").value) || 1;
         const priceDisplay = document.getElementById("priceDisplay");
 
         let price = 0;
-
         if (type === "Thumbnail") price = quantity * 1;
         if (type === "Banner or Header") price = 5;
         if (type === "Banner/Header + 3 Thumbnails") price = 6;
@@ -63,15 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ===============================
-       FORM SUBMIT → INSTAGRAM
+       FORM SUBMIT
     ================================ */
-
     const form = document.getElementById("orderForm");
 
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", e => {
         e.preventDefault();
-
-        const lang = document.documentElement.lang;
 
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
@@ -80,17 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const quantity = document.getElementById("quantity").value;
         const details = document.getElementById("details").value;
 
-        let message = lang === "es"
-            ? `NUEVO PEDIDO
-
-Nombre: ${name}
-Email: ${email}
-Canal: ${channel}
-Tipo: ${type}${quantity ? `\nCantidad: ${quantity}` : ""}
-
-Detalles:
-${details}`
-            : `NEW ORDER
+        let message = `NEW ORDER
 
 Name: ${name}
 Email: ${email}
@@ -101,20 +81,14 @@ Details:
 ${details}`;
 
         navigator.clipboard.writeText(message).then(() => {
-            alert(
-                lang === "es"
-                    ? "Pedido copiado. Serás redirigido a Instagram.\nPega el mensaje en DM."
-                    : "Order copied. You will be redirected to Instagram.\nPaste the message in DM."
-            );
-
+            alert("Order copied. You will be redirected to Instagram.");
             window.open("https://www.instagram.com/pablo.69design/", "_blank");
         });
     });
 
     /* ===============================
-       FADE UP ANIMATION
+       FADE UP
     ================================ */
-
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -124,5 +98,4 @@ ${details}`;
     }, { threshold: 0.2 });
 
     document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
-
 });
