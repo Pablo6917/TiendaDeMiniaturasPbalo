@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Thumbnails</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LANGUAGE SWITCH -->
+<div class="lang-switch fade-up">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('es')">ES</button>
+</div>
+
+<!-- HEADER -->
+<header class="fade-up">
+    <h1 data-en="🔥 Professional YouTube Thumbnails"
+        data-es="🔥 Miniaturas Profesionales para YouTube"></h1>
+
+    <p data-en="Increase your clicks and grow faster"
+       data-es="Aumenta tus clics y crece más rápido"></p>
+
+    <a href="#order" class="img-button">
+        <img data-en-src="images/buttons/send-order-en.png"
+             data-es-src="images/buttons/send-order-es.png"
+             src="images/buttons/send-order-en.png"
+             alt="Send Order">
+    </a>
+</header>
+
+<!-- SERVICES -->
+<section class="services fade-up" id="services">
+    <h2 data-en="What do I offer?"
+        data-es="¿Qué ofrezco?"></h2>
+
+    <p data-en="I'm an intermediate-level graphic designer, who offers eye-catching thumbnails, with professional design and fast delivery."
+       data-es="Soy un diseñador gráfico de nivel intermedio, ofrezo miniaturas llamativas, con diseño profesional y entrega rápida."></p>
+</section>
+
+<!-- PROJECTS -->
+<section class="gallery fade-up">
+    <h2 data-en="My Projects"
+        data-es="Mis Proyectos"></h2>
+
+    <div class="images projects">
+        <div class="project fade-up">
+            <img src="images/proyecto1.jpg" alt="Project 1">
+            <p>Jewelry Thumbnail</p>
+        </div>
+
+        <div class="project fade-up">
+            <img src="images/proyecto2.jpg" alt="Project 2">
+            <p>Interview Thumbnail</p>
+        </div>
+
+        <div class="project fade-up">
+            <img src="images/proyecto3.jpg" alt="Project 3">
+            <p>Vlog Thumbnail</p>
+        </div>
+
+        <div class="project fade-up">
+            <img src="images/proyecto4.jpg" alt="Project 4">
+            <p>Gaming Thumbnail</p>
+        </div>
+
+        <div class="project fade-up">
+            <img src="images/proyecto5.jpg" alt="Project 5">
+            <p>Gaming Thumbnail</p>
+        </div>
+
+        <div class="project fade-up">
+            <img src="images/proyecto6.jpg" alt="Project 6">
+            <p>Reaction Thumbnail</p>
+        </div>
+
+        <div class="project fade-up">
+            <img src="images/proyecto7.jpg" alt="Project 7">
+            <p>Gaming Thumbnail</p>
+        </div>
+    </div>
+</section>
+
+<!-- PRICES -->
+<section class="prices fade-up" id="prices">
+    <h2 data-en="Pricing"
+        data-es="Precios"></h2>
+
+    <div class="img-button price-btn fade-up" onclick="selectType('Thumbnail')">
+        <img data-en-src="images/buttons/1-thumbnail-en.png"
+             data-es-src="images/buttons/1-thumbnail-es.png"
+             src="images/buttons/1-thumbnail-en.png"
+             alt="1 Thumbnail">
+    </div>
+
+    <div class="img-button price-btn fade-up" onclick="selectType('Banner or Header')">
+        <img data-en-src="images/buttons/banner-en.png"
+             data-es-src="images/buttons/banner-es.png"
+             src="images/buttons/banner-en.png"
+             alt="Banner">
+    </div>
+
+    <div class="img-button price-btn fade-up" onclick="selectType('Banner/Header + 3 Thumbnails')">
+        <img data-en-src="images/buttons/pack-en.png"
+             data-es-src="images/buttons/pack-es.png"
+             src="images/buttons/pack-en.png"
+             alt="Pack">
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact fade-up">
+    <h2 data-en="Contact"
+        data-es="Contacto"></h2>
+
+    <p data-en="Message me and let's work together"
+       data-es="Escríbeme y trabajemos juntos"></p>
+
+    <a href="https://discord.com/users/pbalo._"
+       target="_blank"
+       class="img-button fade-up">
+        <img src="images/buttons/discord.png" alt="Discord">
+    </a>
+</section>
+
+<!-- ORDER FORM -->
+<section class="order fade-up" id="order">
+    <h2 data-en="Place your order(instagram)"
+        data-es="Realiza tu pedido(instagram)"></h2>
+
+    <form id="orderForm">
+        <input type="text" id="name" placeholder="Your name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="channel" placeholder="YouTube channel name" required>
+
+        <select id="type" required onchange="toggleThumbnailQuantity(); updatePrice();">
+            <option value="">Select a type</option>
+            <option value="Thumbnail">Thumbnail</option>
+            <option value="Banner or Header">Banner or Header</option>
+            <option value="Banner/Header + 3 Thumbnails">Banner/Header + 3 Thumbnails</option>
+        </select>
+
+        <div id="thumbnailQuantityDiv" style="display:none;">
+            <label for="quantity">Number of thumbnails (max 15)</label>
+            <input type="number" id="quantity" min="1" max="15" onchange="updatePrice()">
+        </div>
+
+        <textarea id="details"
+            placeholder="Describe your idea (text, style, colors, reference...)"
+            required></textarea>
+
+        <p id="priceDisplay" style="font-weight:bold;"></p>
+
+        <button type="submit" class="btn">
+            Send order
+        </button>
+    </form>
+</section>
+
+<!-- FOOTER -->
+<footer class="fade-up">
+    <p data-en="© 2026 - Pablo Design"
+       data-es="© 2026 - Pablo Design"></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

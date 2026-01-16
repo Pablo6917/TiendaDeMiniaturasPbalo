@@ -1,0 +1,334 @@
+/* ===============================
+   BASE
+================================ */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: white;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.6rem; }
+
+p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.3rem; }
+    h2 { font-size: 1.8rem; }
+    p  { font-size: 1.05rem; }
+}
+
+/* ===============================
+   LANGUAGE SWITCH
+================================ */
+
+.lang-switch {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 100;
+}
+
+.lang-switch button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+header {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #7201b4, #ea00ff);
+    animation: headerFade 1s ease;
+}
+
+@keyframes headerFade {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================
+   SECTIONS
+================================ */
+
+.services,
+.gallery,
+.prices,
+.contact,
+.order {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.order {
+    background: #141414;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: black;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.85;
+    transform: scale(1.03);
+}
+
+/* Image buttons */
+.img-button img {
+    width: 260px;
+    max-width: 90%;
+    cursor: pointer;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.img-button img:hover {
+    transform: scale(1.07);
+    filter: brightness(1.15);
+}
+
+@media (max-width: 768px) {
+    .img-button img {
+        width: 220px;
+    }
+}
+
+/* ===============================
+   PROJECTS / GALLERY
+================================ */
+
+.images {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.project {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+}
+
+.project img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.project p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.project:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+/* ===============================
+   PRICING (HORIZONTAL)
+================================ */
+
+.prices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.prices .price-btn {
+    margin: 10px;
+}
+
+/* Desktop: horizontal */
+@media (min-width: 769px) {
+    .prices {
+        flex-direction: row;
+    }
+}
+
+/* Mobile: vertical */
+@media (max-width: 768px) {
+    .prices {
+        flex-direction: column;
+    }
+}
+
+/* ===============================
+   ORDER FORM
+================================ */
+
+.order form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order input,
+.order select,
+.order textarea {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+}
+
+.order textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.order input:focus,
+.order select:focus,
+.order textarea:focus {
+    outline: 2px solid #ff9900;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+
+footer {
+    background: #111;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* ===============================
+   FADE UP ANIMATION
+================================ */
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===============================
+   MOBILE OPTIMIZATION
+================================ */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 60px 15px;
+    }
+
+    .services,
+    .gallery,
+    .prices,
+    .contact,
+    .order {
+        padding: 40px 15px;
+    }
+
+    .images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .order input,
+    .order select,
+    .order textarea {
+        font-size: 16px; /* evita zoom iOS */
+    }
+}
+
+/* Remove mobile tap highlight */
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+/* ===============================
+   PRICING HORIZONTAL (DESKTOP)
+================================ */
+
+.prices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap; /* móvil */
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+    .prices {
+        flex-wrap: nowrap;          
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .prices .img-button img {
+        width: 340px;               
+    }
+}
+
+/* MOBILE */
+@media (max-width: 1023px) {
+    .prices {
+        flex-direction: column;
+    }
+
+    .prices .img-button img {
+        width: 220px;
+    }
+}
+/* ===============================
+   PROJECTS GRID (PC)
+================================ */
+
+.images.projects {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+/* Proyecto 9: forzar tercera fila y centrar */
+.images.projects .project:nth-child(9) {
+    grid-column: 2 / 4; /* columnas centrales */
+}
